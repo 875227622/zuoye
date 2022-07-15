@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+    <link rel="stylesheet" href="style.css" />
+    <style type="text/css">
+        .mybkkd {
+            font-size: 22px
+        }
+
+        .mybkd {
+            font-size: 18px
+        }
+
+        h1{
+
+            text-align: center;
+
+
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+    <div id="clock">
+        <p id="date" class="date"></p>
+        <p id="time" class="time"></p>
+        <p class="text">
+        <h2>7.15日作业展示</h2>
+        </p>
+    </div>
+
+    <div class="box">
+
+        <div id="page1" class="page open" style="--b:rgba(255,0,0,0.2)">
+            <br><br><br><br>
+            <h1>《今日鸡汤》
+            </h1><br><br><br>
+            <p class="mybkd">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;善待自己，不被别人左右，也不去左右别人，自信、优雅。如果做一粒尘埃，就用飞舞诠释生命的内涵；如果是一滴雨，就倾尽温柔滋滋润大地。人生多磨难，要为自己鼓掌，别让犹豫阻滞了脚步，别让忧伤苍白了心灵。
+            </p>
+        </div>
+        <div id="page2" class="page close" style="--b:rgba(0,102,255,0.2)">
+
+            <br><br><br>
+
+            <h2>《黑马程序员前端基础36期第三天》</h2>
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://875227622.github.io/zuoye1/"><input class="mybkd" type="button" value="这个是第一项作业（必做）" /></a>
+            <br><br>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://875227622.github.io/zuoye2/"><input class="mybkd" type="button" value="这个是第二项作业（必做）" /></a>
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://875227622.github.io/zuoye3/"><input class="mybkd" type="button" value="这个是第三项作业（选做）" /></a>
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://875227622.github.io/zuoye4/"><input class="mybkd" type="button" value="这个是第四项作业（选做）" /></a>
+                <br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://875227622.github.io/zuoye5/"><input class="mybkd" type="button" value="这个是第五项作业（选做）" /></a>
+        </div>
+        <div id="page3" class="page close" style="--b:rgba(85,0,255,0.2)">
+            <br><br>
+            <h1> 《往期回顾》</h1>
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://875227622.github.io/132/"><input class="mybkd" type="button" value="第一天作业" /></a>
+
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://875227622.github.io/test6/"><input class="mybkd" type="button" value="第二天作业" /></a>
+            <br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a
+                href="https://www.baidu.com/?&"><input class="mybkd" type="button" value="第三天作业" /></a>
+        </div>
+        <div id="page4" class="page close" style="--b:rgba(85,255,0,0.2)">
+            <h1>敬请期待....</h1>
+
+        </div>
+        <div id="nav">
+            <ul>
+                <li class="checked" style="--b:rgba(255,0,0,0.2)">
+                    <ion-icon name="home-outline"></ion-icon>
+                    <span>主页</span>
+                </li>
+                <li class="no-checked" style="--b:rgba(0,102,255,0.2)">
+                    <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                    <span>作业</span>
+                </li>
+                <li class="no-checked" style="--b:rgba(85,0,255,0.2)">
+                    <ion-icon name="extension-puzzle-outline"></ion-icon>
+                    <span>回顾</span>
+                </li>
+                <li class="no-checked" style="--b:rgba(85,255,0,0.2)">
+                    <ion-icon name="settings-outline"></ion-icon>
+                    <span>测试</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <script>
+        var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+        var timerID = setInterval(updateTime, 1000); // 每隔1秒执行一次
+        updateTime();
+
+        function updateTime() {
+            var cd = new Date();
+            document.getElementById("time").innerHTML = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(),
+                2) + ':' + zeroPadding(cd.getSeconds(), 2);
+            document.getElementById("date").innerHTML = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() +
+                1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+        };
+
+        function zeroPadding(num, digit) {
+            var zero = '';
+            for (var i = 0; i < digit; i++) {
+                zero += '0';
+            }
+            return (zero + num).slice(-digit);
+        }
+        let lis = document.getElementById("nav").children[0].children;
+        for (let i = 0; i < lis.length; i++) {
+            lis[i].setAttribute("onclick", "openPage(" + i + ")")
+        }
+
+        function openPage(index) {
+            for (let i = 0; i < lis.length; i++) {
+                if (lis[i] === lis[index]) {
+                    document.getElementById("page" + (i + 1)).classList.replace("close", "open");
+                    lis[i].classList.replace("no-checked", "checked");
+                } else {
+                    document.getElementById("page" + (i + 1)).classList.replace("open", "close");
+                    lis[i].classList.replace("checked", "no-checked");
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
